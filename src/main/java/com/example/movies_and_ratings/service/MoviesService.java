@@ -1,11 +1,11 @@
 package com.example.movies_and_ratings.service;
 
-import com.example.movies_and_ratings.domains.Movies;
+
 import com.example.movies_and_ratings.dto.GenreMoviesWithSubtotals;
 import com.example.movies_and_ratings.dto.MovieInput;
 import com.example.movies_and_ratings.dto.ResponseOfLongestDurationMovies;
 import com.example.movies_and_ratings.dto.TopRatedMoviesResponse;
-import com.example.movies_and_ratings.mapper.MoviesMapper;
+
 import com.example.movies_and_ratings.repository.MoviesRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +18,11 @@ import java.util.List;
 public class MoviesService {
 
     private final MoviesRepository moviesRepository;
-    private final MoviesMapper moviesMapper;
 
-    public MoviesService(MoviesRepository moviesRepository, MoviesMapper moviesMapper) {
+
+    public MoviesService(MoviesRepository moviesRepository) {
         this.moviesRepository = moviesRepository;
-        this.moviesMapper = moviesMapper;
+
     }
 
     public List<ResponseOfLongestDurationMovies> getLongestDurationMovies(){
