@@ -26,8 +26,24 @@ public class MoviesService {
     }
 
     public List<ResponseOfLongestDurationMovies> getLongestDurationMovies(){
-        List<Movies> longestDurationMovies = moviesRepository.getLongestDurationMovies();
-       return moviesMapper.responseOfLongestDurationMoviesList(longestDurationMovies);
+        List<Tuple> longestDurationMovies = moviesRepository.getLongestDurationMovies();
+
+        List<ResponseOfLongestDurationMovies> responses = new ArrayList<>();
+
+
+        for (Tuple tuple : longestDurationMovies) {
+            String tconst = (String) tuple.get("tconst");
+            String primaryTitle = (String) tuple.get("primaryTitle");
+            Integer runtimeMinutes = (Integer) tuple.get("runtimeMinutes");
+            String genres = (String) tuple.get("genres");
+
+            ResponseOfLongestDurationMovies response = new ResponseOfLongestDurationMovies(tconst, primaryTitle,runtimeMinutes, genres);
+            responses.add(response);
+        }
+
+        return responses;
+
+
     }
 
     public String saveMovie(final MovieInput movieInput){

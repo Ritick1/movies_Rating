@@ -17,17 +17,17 @@ import java.util.List;
 public interface MoviesRepository extends JpaRepository<Movies,Integer> {
 
     @Query(value = """
-            SELECT *
+            SELECT tconst,primaryTitle,runtimeMinutes,genres
             FROM movies
-            ORDER BY runtime_minutes DESC
+            ORDER BY runtimeMinutes DESC
             LIMIT 10
             """,nativeQuery = true)
-    public  List<Movies> getLongestDurationMovies();
+    public  List<Tuple> getLongestDurationMovies();
 
 
 @Modifying
 @Transactional
-    @Query(value = "INSERT INTO movies (tconst, title_type, primary_title, runtime_minutes, genres) " +
+    @Query(value = "INSERT INTO movies (tconst, titleType, primaryTitle, runtimeMinutes, genres) " +
             "VALUES (:tconst, :titleType, :primaryTitle, :runtimeMinutes, :genres)",
             nativeQuery = true)
 
