@@ -1,8 +1,6 @@
 package com.example.movies_and_ratings.repository;
 
 import com.example.movies_and_ratings.domains.Movies;
-import com.example.movies_and_ratings.dto.MovieInput;
-import com.example.movies_and_ratings.dto.TopRatedMoviesResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -10,11 +8,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.*;
+import javax.persistence.Tuple;
 import java.util.List;
 
+
 @Repository
-public interface MoviesRepository extends JpaRepository<Movies,Integer> {
+public interface MoviesRepository  extends JpaRepository<Movies,Integer> {
 
     @Query(value = """
             SELECT tconst,primaryTitle,runtimeMinutes,genres

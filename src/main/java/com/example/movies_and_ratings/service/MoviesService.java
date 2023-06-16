@@ -19,11 +19,10 @@ public class MoviesService {
 
     private final MoviesRepository moviesRepository;
 
-
     public MoviesService(MoviesRepository moviesRepository) {
         this.moviesRepository = moviesRepository;
-
     }
+
 
     public List<ResponseOfLongestDurationMovies> getLongestDurationMovies(){
         List<Tuple> longestDurationMovies = moviesRepository.getLongestDurationMovies();

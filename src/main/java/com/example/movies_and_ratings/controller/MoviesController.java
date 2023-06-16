@@ -1,6 +1,5 @@
 package com.example.movies_and_ratings.controller;
 
-import com.example.movies_and_ratings.domains.Movies;
 import com.example.movies_and_ratings.dto.GenreMoviesWithSubtotals;
 import com.example.movies_and_ratings.dto.MovieInput;
 import com.example.movies_and_ratings.dto.ResponseOfLongestDurationMovies;
